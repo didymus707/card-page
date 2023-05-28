@@ -13,25 +13,31 @@ type CardLabelProps = {
 
 export const TimerNumber = ({ num, ...rest }: TimerNumberProps) => (
   <Title
-    w="1.8rem"
     bg="#17254c"
     display="flex"
-    height="2.6rem"
     borderRadius="4px"
     alignItems="center"
     justifyContent="center"
+    w={{ base: "1.6rem", md: "1.6rem", lg: "1.6rem", xl: "1.8rem" }}
+    height={{ base: "2.4rem", md: "2.4rem", lg: "2.4rem", xl: "2.6rem" }}
+    fontSize={{
+      base: "1.2rem",
+      md: "1.3125rem",
+      lg: "1.3125rem",
+      xl: "1.3125rem",
+    }}
     {...rest}
   >
     {num}
   </Title>
 );
 
-export default TimerNumber;
-
 export const CardLabel = ({ title, desc }: CardLabelProps) => (
   <>
     <Box>
-      <Subtitle mb="4px">{title}</Subtitle>
+      <Subtitle mb="4px" fontSize={{ base: "0.875rem", md: "1rem" }}>
+        {title}
+      </Subtitle>
       <SmallText color="#8e96a3" fontWeight="semibold">
         {desc}
       </SmallText>
