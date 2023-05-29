@@ -7,15 +7,23 @@ import { Box, Flex, Icon } from "@chakra-ui/react";
 import { Chip, MasterCard, Note } from "../primitives/icons";
 import { BodyText, SmallText, Title } from "../primitives/typography";
 
-export const CardDisplay = () => (
+export const CardDisplay = ({
+  month,
+  year,
+  last4
+}: {
+  month: string;
+  year: string;
+  last4: string
+}) => (
   <>
     <Box
       h={{ base: "470px", md: "470px" }}
-      w={{ base: "100%", md: "100%", lg: "60%", xl: '30%' }}
+      w={{ base: "100%", md: "100%", lg: "60%", xl: "30%" }}
     >
       {/* <Box w={["100%", "100%", "30%"]} h={{ base: "470px", md: "470px" }}> */}
       <Box
-        w='17rem'
+        w="17rem"
         position="relative"
         className="card-image-detail"
         m={{ base: "0 auto", md: "0 auto", lg: " 0 auto" }}
@@ -58,12 +66,12 @@ export const CardDisplay = () => (
               <Box as="span" mr="0.75rem">
                 ••••
               </Box>{" "}
-              3456
+              {last4}
             </BodyText>
           </Box>
           <Flex justify="space-between" align="center">
             <SmallText fontWeight="bold" color="darkblue">
-              09/22
+              {month}/{year}
             </SmallText>
             <MasterCard boxSize="2.4rem" />
           </Flex>

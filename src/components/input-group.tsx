@@ -10,26 +10,32 @@ import {
 
 type InputGroupBoxProps = {
   type?: string;
-  color?: string;
   spacey?: string;
+  textsec?: string
+  webkitsec?: string;
+  val: InputProps['value'];
   placeholdervalue: string;
-  lefticon?: React.ReactNode;
   length?: BoxProps["width"];
+  lefticon?: React.ReactNode;
   righticon?: React.ReactNode;
   groupwidth?: BoxProps["width"];
-} & BoxProps &
-  InputProps;
+  noOfCharacters?: InputProps['maxLength'];
+} & BoxProps;
 
 const InputGroupBox = (props: InputGroupBoxProps) => {
   const {
+    val,
     type,
-    color,
     spacey,
     length,
     lefticon,
     righticon,
     groupwidth,
+    textsec,
+    webkitsec,
+    noOfCharacters,
     placeholdervalue,
+    ...rest
   } = props;
   return (
     <>
@@ -42,14 +48,21 @@ const InputGroupBox = (props: InputGroupBoxProps) => {
         <Input
           h="3.5rem"
           type={type}
-          color={color}
+          value={val}
           fontSize="14px"
+          color='darkblue'
           fontWeight="bold"
           borderRadius="8px"
+          maxLength={noOfCharacters}
           focusBorderColor="#0077b6"
           border="1px solid #e0e0e0"
           placeholder={placeholdervalue}
-          {...props}
+          _placeholder={{
+            opacity: 0.5,
+            fontWeight: "700",
+          }}
+
+          {...rest}
         />
         {righticon && (
           <InputRightElement height="100%" w={length}>
